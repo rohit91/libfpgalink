@@ -59,7 +59,7 @@ else
 endif
 
 VID := 1D50
-PID := 602B
+PID := 60B7
 DID := 0002
 
 .PHONY: all clean check check_int2jt
@@ -79,6 +79,7 @@ progOffsets.h: prog.rel
 	cat prog.lst | ./lstParse.py > progOffsets.h
 
 date.inc:
+	echo ";This is an auto-generated file. Attempt to modify would be futile unless you're an expert at hacking stuff"
 	echo DATE=0x$(FIRMWARE_VERSION) > $@
 	echo VID=0x$(VID) >> $@
 	echo PID=0x$(PID) >> $@
